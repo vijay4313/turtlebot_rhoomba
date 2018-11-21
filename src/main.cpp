@@ -41,7 +41,7 @@
 #include "../include/Walker.h"
 
 int main(int argc, char* argv[]) {
-	// Initialize the ROS system
+    // Initialize the ROS system
     ros::init(argc, argv, "turtlebot_rhoomba");
     // Create a Walker instance
     Walker walk;

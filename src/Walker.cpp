@@ -49,11 +49,11 @@
  * @return - None
  */
 Walker::Walker() {
-	// Publisher to post the velocity messages
+    // Publisher to post the velocity messages
     vel = nh.advertise <geometry_msgs::Twist>
      ("/mobile_base/commands/velocity", 1000);
     // Subscriber to get the laser scan data
-    laserScan = nh.subscribe("/scan", 50, &Walker::collisionCallback,this);
+    laserScan = nh.subscribe("/scan", 50, &Walker::collisionCallback, this);
     msg.linear.x = 0.0;  // Linear X-axis velocity of turtlebot
     msg.linear.y = 0.0;  // Linear Y-axis velocity of turtlebot
     msg.linear.z = 0.0;  // Linear Z-axis velocity of turtlebot
@@ -88,8 +88,8 @@ Walker::~Walker() {
  */
 void Walker::step() {
     ros::Rate loop_rate(10);
-    while(ros::ok()) {
-        if(isCollision) {
+    while (ros::ok()) {
+        if (isCollision) {
             msg.linear.x = 0.0;
             msg.angular.z = 1.0;
         } else {
@@ -98,7 +98,7 @@ void Walker::step() {
         }
         vel.publish(msg);
         ros::spinOnce();
-        loop_rate.sleep(); 
+        loop_rate.sleep();
     }
 }
 

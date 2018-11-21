@@ -37,20 +37,20 @@
  *
  */
 
-#include <iostream>
 #include <ros/ros.h>
+#include <iostream>
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/LaserScan.h"
 
-class Walker{
-    private:
+class Walker {
+ private:
         ros::NodeHandle nh;  // ROS node handler instance
         geometry_msgs::Twist msg;  // Placeholder for velocity messages
         ros::Publisher vel;  // Placeholder for publisher
         ros::Subscriber laserScan;  // Placeholder for subscriber
         bool isCollision = false;  // Indicator for collision
-        
-    public:
+
+ public:
         /**
          * @brief Default Constructor
          * for Walker class
